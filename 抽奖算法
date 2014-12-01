@@ -1,0 +1,34 @@
+<?php
+/**
+     * 随机算法
+     * @param type $proArr
+     * @return type
+     */
+    public function getRandPro($proArr,$maxRand=100) {
+        #对奇遇数组排序
+        asort($proArr);
+        
+        $lastMax = 0;
+        foreach ($proArr as $k => $v) {
+            #计算最小值
+            $min = $lastMax + 1;
+            #计算最大值
+            $max = $min + $v - 1;
+
+            $newProArr[$k] = array($min, $max);
+
+            $lastMax = $max;
+        }
+
+
+        $rand = mt_rand(1, $maxRand);
+        foreach ($newProArr as $kk => $n) {
+            list($min, $max) = $n;
+            if ($min <= $rand && $rand <= $max) {
+                return $kk;
+            }
+        }
+
+        return 0;
+    }
+?>

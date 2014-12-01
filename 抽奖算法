@@ -1,6 +1,7 @@
 <?php
 /**
      * 随机算法
+     * 适用于 大转盘 刮刮卡 等常用抽奖命中算法
      * @param type $proArr
      * @return type
      */
